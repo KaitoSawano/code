@@ -82,8 +82,8 @@ public:
         consensus.BIP65Height = 419081; // 0 - first v4 block after the last v3 block
         consensus.BIP66Height = 585383; // 0 - this is the last block that could be v2, 1900 blocks past the last v2 block
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20;
-        consensus.nPowTargetTimespan = 3 * 24 * 60 * 60; // pre-digishield: 3 days
-        consensus.nPowTargetSpacing = 2.5 * 60; // 2.5 minute
+        consensus.nPowTargetTimespan = 2 * 24 * 60 * 60; // pre-digishield: 2 days
+        consensus.nPowTargetSpacing = 3 * 60; // 3 minute
         consensus.fDigishieldDifficultyCalculation = false;
         consensus.nCoinbaseMaturity = 100;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -120,7 +120,7 @@ public:
         digishieldConsensus.nHeightEffective = 145000;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
-        digishieldConsensus.nPowTargetTimespan = 3 * 60; // post-digishield: 2 minute
+        digishieldConsensus.nPowTargetTimespan = 2 * 60; // post-digishield: 2 minute
         digishieldConsensus.nCoinbaseMaturity = 150;
 
         // Blocks 371337+ are AuxPoW
@@ -199,7 +199,7 @@ public:
     CTestNetParams() {
         strNetworkID = "test";
         consensus.nHeightEffective = 0;
-        consensus.nPowTargetTimespan = 3 * 24 * 60 * 60; // pre-digishield: 3 days
+        consensus.nPowTargetTimespan = 2 * 24 * 60 * 60; // pre-digishield: 2 days
         consensus.fDigishieldDifficultyCalculation = false;
         consensus.nCoinbaseMaturity = 100;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -213,8 +213,8 @@ public:
         consensus.BIP65Height = 489872; // 0
         consensus.BIP66Height = 608658; // 0 - this is the last block that could be v2, 1900 blocks past the last v2 block
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3 * 24 * 60 * 60; // pre-digishield: 3 days
-        consensus.nPowTargetSpacing = 2.5 * 60; // 2.5 minute
+        consensus.nPowTargetTimespan = 2 * 24 * 60 * 60; // pre-digishield: 2 days
+        consensus.nPowTargetSpacing = 3 * 60; // 3 minute
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 2880; // 2 days (note this is significantly lower than Bitcoin standard)
         consensus.nMinerConfirmationWindow = 10080; // 60 * 24 * 7 = 10,080 blocks, or one week
