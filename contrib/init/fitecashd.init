@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  litemoneyd The litemoney core server.
+#
+#
+# chkconfig: 345 80 20
+# description: litemoneyd
+# processname: litemoneyd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/litemoneyd, see below
+if [ -f /etc/sysconfig/litemoneyd ]; then
+        . /etc/sysconfig/litemoneyd
+fi
+
+RETVAL=0
+
+prog=litemoneyd
+# you can override the lockfile via LITEMONEYD_LOCKFILE in /etc/sysconfig/litemoneyd
+lockfile=${LITEMONEYD_LOCKFILE-/var/lock/subsys/litemoneyd}
+
+# litemoneyd defaults to /usr/bin/litemoneyd, override with LITEMONEYD_BIN
+litemoneyd=${LITEMONEYD_BIN-/usr/bin/litemoneyd}
+
+# litemoneyd opts default to -disablewallet, override with LITEMONEYD_OPTS
+litemoneyd_opts=${LITEMONEYD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $litemoneyd $litemoneyd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Litemoney Core
+Comment=Connect to the Litemoney P2P Network
+Comment[de]=Verbinde mit dem Litemoney peer-to-peer Netzwerk
+Comment[fr]=Litemoney, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Litemoney, eşten eşe kriptografik sanal para birimi
+Exec=litemoney-qt %u
+Terminal=false
+Type=Application
+Icon=litemoney128
+MimeType=x-scheme-handler/litemoney;
+Categories=Office;Finance;

@@ -1,0 +1,11 @@
+[Protocol]
+exec=litemoney-qt '%u'
+protocol=litemoney
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
